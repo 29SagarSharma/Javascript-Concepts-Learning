@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+<body style="background-color: #212121; color:#fff;" >
+    <div style="background-color: grey; color:#fff">
+    <h1>Here is the detail after clicking on the evevnt</h1>
+    <button id="show" >Show</button>
+    <div id="result"><!--Added this div to show the result --></div>
+    </div>
+</body>
+<script>
+     document.querySelector('#show').addEventListener('click', function(e){
+    const requestUrl= 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestUrl) 
+    xhr.onreadystatechange= function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data =JSON.parse(this.responseText);
+            console.log(typeof data);
+            console.log(data.followers);
+
+            //dispaly the result on the screen
+            const resultDiv = document.querySelector('#result');
+            resultDiv.innerHTML=`<p>Followers: ${data.followers}</p>
+            <p>Bio : ${data.bio}</p>
+            <p>Blog : ${data.blog}</p>
+            `;
+
+        }
+    };
+    xhr.send()
+    
+    
+})
+</script>
+</html>
