@@ -1,4 +1,5 @@
 JavaScript is a powerful programming language commonly used for adding interactivity to web pages.
+
 Each folder in this repository represents a specific JavaScript concept:
 
 Variables and Data Types: Understanding var, let, const, and different data types (strings, numbers, arrays, objects, etc.).
