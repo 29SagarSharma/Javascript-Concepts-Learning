@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <button id="orange">orange</button>
+    <button id="green">Green</button>
+
+</body>
+<script>
+    // function outer(){
+    //     let username ="hitesh"
+    //     function inner(){
+    //         let secret ="my 123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);//outer function share to inner function
+    //         console.log(secret); //sibling function does not share thing
+    //     }
+    //     inner()
+    //     innerTwo()
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+</script>
+<script>
+    // document.getElementById("orange").onclick=function(){
+    //     document.body.style.backgroundColor=`orange`
+    // }
+    // document.getElementById("green").onclick=function(){
+    //     document.body.style.backgroundColor=`green`
+    // }
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor= `${color}`
+
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+
+        document.getElementByID('orange').onclick = clickHandler("orange")
+        document.getElementByID('green').onclick = clickHandler("green")
+    }
+</script>
+</html>
